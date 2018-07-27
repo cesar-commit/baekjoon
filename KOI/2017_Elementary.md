@@ -88,3 +88,75 @@ int main()
 
 	return 0;
 }
+```
+
+## 2. 방 배정하기
+*해당 페이지 문제는 백준(https://www.acmicpc.net/)을 참고했습니다*
+
+문제를 보기 위해 [여기](https://www.acmicpc.net/problem/14697)를 클릭하세요.
+
+
+```cpp
+#include <iostream>a
+
+using namespace std;
+
+int main()
+{
+	int a, b, c, tmp, num;
+	cin >> a;
+	cin >> b;
+	if (a > b)
+	{
+		tmp = b;
+		b = a;
+		a = tmp;
+	}	// a < b
+	cin >> c;
+	if (b > c)
+	{
+		tmp = c;
+		c = b;
+		b = tmp;
+	}	// a< b< c
+	cin >> num;
+
+	int quo = 0; int quo2 = 0; int rem1 = 0; int rem2 = 0;
+	int result = 0;
+	quo = num / c;
+	for (int i = quo; i >= 0; i--)
+	{
+		rem1 = num - c * i;
+		if (rem1 == 0)
+		{
+			//result = 1;
+			//break;
+			cout << '1';
+			return 0;
+		}
+		quo2 = rem1 / b;
+		for (int j = quo2; j >= 0; j--)
+		{
+			rem2 = rem1 - b * j;
+			if (rem2 == 0)
+			{
+				//result = 1;
+				cout << '1';
+				//break;
+				return 0;
+			}
+			if (rem2%a == 0)
+			{
+				//result = 1;
+				//break;
+				cout << '1';
+				return 0;
+			}
+		}
+	}
+
+	cout << result;
+
+	return 0;
+}
+```
