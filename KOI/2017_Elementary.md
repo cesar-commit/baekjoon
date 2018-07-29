@@ -97,7 +97,7 @@ int main()
 
 
 ```cpp
-#include <iostream>a
+#include <iostream>
 
 using namespace std;
 
@@ -129,8 +129,6 @@ int main()
 		rem1 = num - c * i;
 		if (rem1 == 0)
 		{
-			//result = 1;
-			//break;
 			cout << '1';
 			return 0;
 		}
@@ -140,15 +138,11 @@ int main()
 			rem2 = rem1 - b * j;
 			if (rem2 == 0)
 			{
-				//result = 1;
 				cout << '1';
-				//break;
 				return 0;
 			}
 			if (rem2%a == 0)
 			{
-				//result = 1;
-				//break;
 				cout << '1';
 				return 0;
 			}
