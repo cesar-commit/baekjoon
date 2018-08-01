@@ -156,8 +156,10 @@ int main()
 ```
 
 
-# 3. 서울에서 경산까지
-*해당 문제는 백준(https://www.acmicpc.net/)을 참고했습니다*
+## 3. 서울에서 경산까지
+*해당 문제는 백준(https://www.acmicpc.net/)을 참고했습니다.*
+
+
 *해당 소스 코드는 http://sanya-surplus.tistory.com/45 을 참고했습니다.*
 
 문제를 보기 위해 [여기](https://www.acmicpc.net/problem/14863)를 클릭하세요.
@@ -166,7 +168,7 @@ int main()
 
 - vis[n번째도시][현재까지의 시간합계] 배열이 '1'인 경우에만 모금액 계산을 실행한다.
 
-('1'이 아닌 vis[][]는 continue로 빨리 넘겨버림)
+	('1'이 아닌 vis[][]는 continue로 빨리 넘겨버림)
 
 - 중간중간 comment는 예시 시뮬레이션
 
@@ -230,14 +232,15 @@ int main(void) {
 			}
 			if (j + b <= K) {
 				DP[i + 1][j + b] = max(DP[i + 1][j + b], DP[i][j] + bc);
-				cout << "DP[" << i << " + 1][" << j << " + " << b << "] = " << DP[i + 1][j + b] << endl;
 				vis[i + 1][j + b] = 1;
-				cout << "vis[" << i << " + 1][" << j << " + " << b << "] = 1" << endl;
 			}
 		}
 	}
 	int m = 0;
 	for (int j = 0; j <= K; j++) {
+		//dp[][]의 n번째 row 값들만 비교해서 그 중 최대.
+		// n번째 row 값들은 각각의 다른 경로를 통해서 도달한 모금액.
+		// 중간에 시간 제한에 막힌 경로들의 nth row값은 '0'일 것.
 		m = max(m, DP[N][j]);
 	}
 	printf("%d", m);
