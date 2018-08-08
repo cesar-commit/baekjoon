@@ -157,8 +157,6 @@ int main()
 
 
 ## 3. 서울에서 경산까지
-*해당 문제는 백준(https://www.acmicpc.net/)을 참고했습니다.*
-
 
 *해당 소스 코드는 http://sanya-surplus.tistory.com/45 을 참고했습니다.*
 
@@ -246,3 +244,49 @@ int main(void) {
 	printf("%d", m);
 	}
 	```
+
+# 4. 줄서기
+문제를 보기 위해 [여기](https://www.acmicpc.net/problem/14864)를 클릭하세요.
+
+* (a, b) 입력 하나가 들어오면 a는 순위가 하나 앞서게 되고, b는 순위가 하나 뒤서게 된다.
+
+			따라서 a에 해당하는 학생 순서는 ++, b 학생 순서는 --
+			scanf("%d %d", &a, &b);
+	    list[a]++; list[b]--;
+		
+
+```cpp
+
+#include <stdio.h>
+
+int list[100001], visited[100001], total;
+int N, M, a, b;
+
+int main() {
+  scanf("%d %d", &N, &M);
+  for(int m =0; m<M ; m++)
+  {
+    scanf("%d %d", &a, &b);
+    list[a]++; list[b]--;
+  }
+
+  for(int n=1; n<=N ; n++)
+  {
+    list[n] += n;
+    if(list[n] > 0 && !visited[list[n]])
+    {
+      total++;
+      visited[list[n]] = 1;
+    }
+  }
+
+  if(total == N)
+  {
+    for(int n = 1; n<= N; n++)
+      printf("%d", list[n]);
+  }
+  else printf("-1\n");
+
+  return 0;  
+}
+```
