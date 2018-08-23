@@ -18,7 +18,7 @@ int main(void) {
 	cout << 'n' << ' ' << 'e' << endl;
 	cout << "- -----------" << endl;
 	for (int i = 0; i < 10; i++) {
-		if (i > 0) {
+			if (i > 0) {
 			fact *= i;
 		}
 		e += (double)1 / fact;
